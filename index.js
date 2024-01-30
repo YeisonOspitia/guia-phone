@@ -4,6 +4,7 @@ const app = express();
 app.use(express.json());
 const cors = require("cors");
 app.use(cors());
+app.use(express.static("dist"));
 
 app.use(
   morgan((tokens, req, res) => {
@@ -111,6 +112,6 @@ const generateId = () => {
   return Math.floor(Math.random() * 100000000);
 };
 
-const PORT = process.env.PORT || 3001;
+const PORT = 3001;
 app.listen(PORT);
 console.log(`Server running on port ${PORT}`);
